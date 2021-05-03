@@ -401,33 +401,6 @@ class MyBetting:
                 f1_0 = []
                 f2_0 = []
 
-            try:
-                textuu = soup.find('div', attrs={'data-mutable-id': "MG1_635938128"})
-            except AttributeError:
-                textuu = []
-            try:
-                text1u = textuu.find_all('tr', attrs={'data-header-highlighted-bounded': "true"})
-            except AttributeError:
-                text1u = []
-            # text6 = text1.find_all('div')
-            a = []
-            for i in text1u:
-                a.append(i.text)
-            a = ','.join(a)
-            a = a.replace("\n", "").replace('(', '').replace(')', '')
-            a1 = a.split(',')
-            aaa = ''
-            try:
-                for int in a1:
-                    if int[1:4] == '2.5':
-                        aaa = int
-                tm = aaa[5:10].strip(' ')
-                tb = aaa[-5:].strip(' ')
-            except IndexError:
-                tm = []
-                tb = []
-
-
             g = soup2.find_all('span', class_="selection-link active-selection")
             for i in g:
                 try:
@@ -505,6 +478,26 @@ class MyBetting:
                         p2_p2 = ''.join(i)
                 except:
                     p2_p2 = ''
+                try:
+                    if '@Total_Goals.Under_2.5' in str(i):
+                        tm = ''.join(i)
+                except:
+                    tm = ''
+                try:
+                    if '@Total_Goals0.Under_2.5' in str(i):
+                        tm = ''.join(i)
+                except:
+                    tm = ''
+                try:
+                    if '@Total_Goals.Over_2.5' in str(i):
+                        tb = ''.join(i)
+                except:
+                    tb = ''
+                try:
+                    if '@Total_Goals0.Over_2.5' in str(i):
+                        tb = ''.join(i)
+                except:
+                    tb = ''
 
 
 
