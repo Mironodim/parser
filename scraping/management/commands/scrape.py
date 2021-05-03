@@ -243,6 +243,36 @@ class MyBetting:
                 link1.append(i)
             elif i[:70] == 'https://www.marathonbet.ru/su/betting/Football/Iceland/Premier+League/':
                 link1.append(i)
+            elif i[:71] == 'https://www.marathonbet.ru/su/betting/Football/England/National+League/':
+                link1.append(i)
+            elif i[:60] == 'https://www.marathonbet.ru/su/betting/Football/Bolivia/LFPB/':
+                link1.append(i)
+            elif i[:70] == 'https://www.marathonbet.ru/su/betting/Football/Bosnia+and+Herzegovina/':
+                link1.append(i)
+            elif i[:68] == 'https://www.marathonbet.ru/su/betting/Football/Germany/Regionalliga/':
+                link1.append(i)
+            elif i[:69] == 'https://www.marathonbet.ru/su/betting/Football/Jordan/Premier+League/':
+                link1.append(i)
+            elif i[:72] == 'https://www.marathonbet.ru/su/betting/Football/Spain/Segunda+Division+B/':
+                link1.append(i)
+            elif i[:66] == 'https://www.marathonbet.ru/su/betting/Football/Qatar/Stars+League/':
+                link1.append(i)
+            elif i[:75] == 'https://www.marathonbet.ru/su/betting/Football/Costa+Rica/Primera+Division/':
+                link1.append(i)
+            elif i[:69] == 'https://www.marathonbet.ru/su/betting/Football/Malaysia/Super+League/':
+                link1.append(i)
+            elif i[:59] == 'https://www.marathonbet.ru/su/betting/Football/Morocco/Cup/':
+                link1.append(i)
+            elif i[:71] == 'https://www.marathonbet.ru/su/betting/Football/UAE/Arabian+Gulf+League/':
+                link1.append(i)
+            elif i[:67] == 'https://www.marathonbet.ru/su/betting/Football/Russia/2nd+Division/':
+                link1.append(i)
+            elif i[:65] == 'https://www.marathonbet.ru/su/betting/Football/Scotland/League+1/':
+                link1.append(i)
+            elif i[:63] == 'https://www.marathonbet.ru/su/betting/Football/Ecuador/Serie+A/':
+                link1.append(i)
+            elif i[:75] == 'https://www.marathonbet.ru/su/betting/Football/South+Africa/Premier+League/':
+                link1.append(i)
 
         print(f'Всего {len(link1)} ')
         link1 = list(set(link1))
@@ -345,6 +375,59 @@ class MyBetting:
             except AttributeError:
                 my_time = ''
                 my_day = ''
+            try:
+                text44 = soup.find('div', attrs={'data-mutable-id': "MG236_-1953818769"})
+            except AttributeError:
+                text44 = []
+            try:
+                text8 = text44.find_all('tr', attrs={'data-header-highlighted-bounded': "true"})
+            except AttributeError:
+                text8 = []
+            # text6 = text1.find_all('div')
+            a = []
+            for i in text8:
+                a.append(i.text)
+            a = ','.join(a)
+            a = a.replace("\n", "").replace('(', '').replace(')', '')
+            a1 = a.split(',')
+            aaa = ''
+            try:
+                for int in a1:
+                    if int[1] == '0':
+                        aaa = int
+                f1_0 = aaa[3:8].strip(' ')
+                f2_0 = aaa[-5:].strip(' ')
+            except IndexError:
+                f1_0 = []
+                f2_0 = []
+
+            try:
+                textuu = soup.find('div', attrs={'data-mutable-id': "MG1_635938128"})
+            except AttributeError:
+                textuu = []
+            try:
+                text1u = textuu.find_all('tr', attrs={'data-header-highlighted-bounded': "true"})
+            except AttributeError:
+                text1u = []
+            # text6 = text1.find_all('div')
+            a = []
+            for i in text1u:
+                a.append(i.text)
+            a = ','.join(a)
+            a = a.replace("\n", "").replace('(', '').replace(')', '')
+            a1 = a.split(',')
+            aaa = ''
+            try:
+                for int in a1:
+                    if int[1:4] == '2.5':
+                        aaa = int
+                tm = aaa[5:10].strip(' ')
+                tb = aaa[-5:].strip(' ')
+            except IndexError:
+                tm = []
+                tb = []
+
+
             g = soup2.find_all('span', class_="selection-link active-selection")
             for i in g:
                 try:
@@ -372,16 +455,6 @@ class MyBetting:
                         xp2 = ''.join(i)
                 except:
                     xp2 = ''
-                try:
-                    if '@Total_Goals.Under_2.5' in str(i):
-                        tm = ''.join(i)
-                except:
-                    tm = ''
-                try:
-                    if '@Total_Goals.Over_2.5' in str(i):
-                        tb = ''.join(i)
-                except:
-                    tb = ''
                 try:
                     if '@Both_Teams_To_Score.yes' in str(i):
                         oz = ''.join(i)
@@ -432,16 +505,7 @@ class MyBetting:
                         p2_p2 = ''.join(i)
                 except:
                     p2_p2 = ''
-                try:
-                    if '@To_Win_Match_With_Handicap.HB_H' in str(i):
-                        f1_0 = ''.join(i)
-                except:
-                    f1_0 = ''
-                try:
-                    if '@To_Win_Match_With_Handicap.HB_A' in str(i):
-                        f2_0 = ''.join(i)
-                except:
-                    f2_0 = ''
+
 
 
             Job.objects.create(
