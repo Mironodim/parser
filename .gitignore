@@ -1,0 +1,92 @@
+# Байт-скомпилированные / оптимизированные / DLL файлы
+__pycache__ /
+* .py [ треска ]
+* $ py.class
+
+# Расширения C
+* .so
+
+# Распространение / упаковка
+.Python
+env /
+build /
+развивающиеся яйца /
+dist /
+загрузки /
+яйца /
+.eggs /
+lib /
+lib64 /
+части /
+sdist /
+var /
+* .egg-info /
+.installed.cfg
+* .egg
+
+# PyInstaller
+#   Обычно эти файлы пишутся скриптом python из шаблона
+#   перед тем, как PyInstaller создаст exe, чтобы добавить в него дату / другую информацию.
+* .manifest
+* .spec
+
+# Журналы установщика
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Модульные тесты / отчеты о покрытии
+htmlcov /
+.tox /
+.coverage
+.coverage. *
+.cache
+Nosetests.xml
+охват .xml
+* , крышка
+.гипотеза /
+
+# Перевод
+* .mo
+* .pot
+
+# Django вещи:
+* .log
+local_settings.py
+
+# Материал фляги:
+instance /
+.webassets-кеш
+
+# Scrapy материал:
+.scrapy
+
+# Документация по Sphinx
+документы / _build /
+
+# PyBuilder
+цель /
+
+# Блокнот IPython
+.ipynb_checkpoints
+
+# pyenv
+.python-версия
+
+# файл расписания сельдерея
+celerybeat-расписание
+
+# dotenv
+.env
+
+# virtualenv
+Venv /
+ENV /
+
+# Настройки проекта Spyder
+.spyderproject
+
+# Настройки проекта веревки
+.ropeproject
+
+# базы данных
+db.sqlite3
