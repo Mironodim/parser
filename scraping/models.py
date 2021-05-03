@@ -3,7 +3,6 @@ from django.db import models
 from django.db import models
 
 class Job(models.Model):
-    number = models.IntegerField(unique=True, null=True, verbose_name='№')
     my_day = models.CharField(blank=True,max_length=50, verbose_name='ДН')
     my_time = models.CharField(blank=True,max_length=50, verbose_name='Дата')
     strana = models.CharField(blank=True,max_length=50, verbose_name='Страна')
@@ -37,9 +36,7 @@ class Job(models.Model):
     def __str__(self):
         return f'{self.my_day}, {self.my_time}, {self.strana}, {self.championat}, {self.items1}, {self.items2}'
 
-
-
-
-
-
-
+    class Meta:
+        verbose_name = 'Игры'
+        verbose_name_plural = 'Игры'
+        ordering = ['my_time']# фильтр по времени и дате
