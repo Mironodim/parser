@@ -3,6 +3,7 @@ from django.db import models
 from django.db import models
 
 class Job(models.Model):
+    number = models.IntegerField(unique=True, null=True, verbose_name='№')
     my_day = models.CharField(blank=True,max_length=50, verbose_name='ДН')
     my_time = models.CharField(blank=True,max_length=50, verbose_name='Дата')
     strana = models.CharField(blank=True,max_length=50, verbose_name='Страна')
